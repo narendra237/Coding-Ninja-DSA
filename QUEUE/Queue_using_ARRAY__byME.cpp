@@ -1,7 +1,5 @@
 /*
-I guess there is an error in my enque() that's why it doesn't take 
-many input and switch case end automTtically . I will improve it 
-further to to correct my mistakes throughout the code
+Created Dynamically
 */
 
 #include <bits/stdc++.h>
