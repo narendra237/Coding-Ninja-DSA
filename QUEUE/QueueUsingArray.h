@@ -4,12 +4,12 @@ class queue{
     int firstIndex;
     int size;
     int capacity;
-    int lastIndex;
+    int nextIndex;
     public:
         queue(int s){
             data = new T[s];
             firstIndex = -1;
-            lastIndex = 0;
+            nextIndex = 0;
             capacity = s;
             size = 0;
         }
