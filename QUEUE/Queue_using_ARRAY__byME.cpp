@@ -35,17 +35,26 @@ class Queue{
     void enqueue(T element){
         if(size == capacity){
             T *data_array = new T[2*capacity];
-            for(int i = 0;i<capacity;i++)
-                data_array[i] = data[i];
-            capacity *= 2;
+            int j = 0;
+            for(int i = FirstIndex;i<capacity;i++){
+                data_array[j] = data[i];
+                j++;
+            }
+            for(int i = 0;i<FirstIndex;i++){
+                data_array[j] = data[i];
+                j++;
+            }
             delete [] data;
             data = data_array;
+            FirstIndex = 0;
+            nextIndex = capacity;
+            capacity *= 2;
         }
 
         data[nextIndex] = element;
         nextIndex = (nextIndex+1)%capacity;
-        // if(FirstIndex == -1)
-        //     FirstIndex = 0;
+        if(FirstIndex == -1)
+            FirstIndex = 0;
         size++;
     }
     
