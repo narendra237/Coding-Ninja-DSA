@@ -66,28 +66,22 @@ class Queue{
 };
 
 int main() {
-    Queue <int> q;
+	Queue<int> q;
 
-    
-        int choice, input;
-        cin >> choice;
-        switch (choice) {
-            case 1:
-                cin >> input;
-                q.enqueue(input);
-                break;
-            case 2:
-                cout << q.dequeue() << "\n";
-                break;
-            case 3:
-                cout << q.front() << "\n";
-                break;
-            case 4:
-                cout << q.size() << "\n";
-                break;
-            default:
-                cout << ((q.empty()) ? "true\n" : "false\n");
-                break;
-        }
+	q.enqueue(10);
+	q.enqueue(20);
+	q.enqueue(30);
+	q.enqueue(40);
+	q.enqueue(50);
+	q.enqueue(60);
+
+
+	cout << q.front() << endl;
+	cout << q.dequeue() << endl;
+	cout << q.dequeue() << endl;
+	cout << q.dequeue() << endl;
+
+	cout << q.size() << endl;
+	cout << q.empty() << endl;
 }
 
