@@ -59,7 +59,25 @@ void printTree(TreeNode<int>* root){
     }
 }
 
+void PrintAtLevelK(TreeNode<int>* root, int k){
+    if(root == NULL)
+        return;
+    if(k==0)
+        cout<<root->data<<"\t";
+    for(int i = 0;i<root->children.size();i++)
+        PrintAtLevelK(root->children[i], k-1);
+}
+
+
+int getLeafNodeCount(TreeNode<int>* root) {
+    if(root == NULL)
+        return 0;
+    if(root->data)
+}
+
 int TotalNodes(TreeNode <int> * root){
+    if(root == NULL)
+        return;
     int ans = 1;
     for(int i = 0;i<root->children.size();i++)  
         ans += TotalNodes(root->children[i]);
