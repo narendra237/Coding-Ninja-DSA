@@ -2,17 +2,42 @@
 #include "node.h"
 using namespace std;
 
-void printTree(Node<int> * root){
+int countNodes(Node <int> * root){
     if(root == NULL)
+        return 0;
+
+    return 1 + countNodes(root->left) + countNodes(root->right);
+}
+// 1 2 3 4 5 6 7 -1 -1 -1 -1 8 9 -1 -1 -1 -1 -1
+
+void printTreeLevelWise(Node<int> *root) {
+    if(!root)
         return;
-    cout<<root->data<<":" ;
-    if(root->left !=NULL)
-        cout<<"L"<<root->left->data<<" ";
-    if(root->right != NULL)
-        cout<<"R"<<root->right->data;
-    cout<<endl;
-    printTree(root->left);
-    printTree(root->right);
+    queue<Node<int> *> pn;
+    pn.push(root);
+    while(pn.size() != 0){
+        Node<int> * front = pn.front();
+        pn.pop();
+        cout<<front->data<<":";
+        
+        if(front->left)
+        {   
+            pn.push(front->left);
+            cout<<"L:"<<front->left->data;
+        }
+         else
+             cout<<"L:-1";
+        
+        cout<<",";
+        
+        if(front->right)
+       {    
+            pn.push(front->right);
+            cout<<"R:"<<front->right->data<<endl;
+        }
+        else
+             cout<<"R:-1"<<endl;
+    }
 }
 
 Node<int> * takeInputLevelWise(){
@@ -51,6 +76,7 @@ Node<int> * takeInputLevelWise(){
 
 int main(){
     Node<int> * root = takeInputLevelWise();
-    printTree(root);
+    printTreeLevelWise(root);
+    cout<<countNodes(root)<<endl;
     delete root;
 }
