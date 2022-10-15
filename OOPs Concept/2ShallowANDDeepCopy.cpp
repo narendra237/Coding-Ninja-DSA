@@ -1,5 +1,5 @@
 #include<bits/stdc++.h>
-#include"StudentClass.h"
+#include"2StudentClass.h"
 using namespace std;
 
 int main(){
