@@ -1,0 +1,58 @@
+length = strlen(string)
+
+
+
+compare 2 strings = strcmp(input1, input2)
+if it returns 0 --- both the strings arer same.
+else if it it returns non-zero --- it means both are not same.
+--
+it subtracts the ASCII value of both the integers , thats why it can gives non-zero value.
+
+
+
+copy strting = strcpy(destination_string, source_string or any string as our rerquirement)
+it also appends null to destination_string.
+str1 = abc;
+str2 = def;
+after copying;
+strcpy(str1,str2)
+str1 = def;
+str2 = def;
+
+
+
+copy n elements from str2 to str1=  strncpy(destination_string, source_string or any string as our rerquirement,n)
+it doesn't appends null like strcpy().
+it copy only n elements in destination_string.
+str1 = abcd;
+str2 = xy;
+----------------
+after copying;
+strcpy(str1,str2,2)
+str1 = xy;
+str2 = xy;
+-----------------
+after copying;
+strcpy(str1,str2,4)
+str1 = xy\0\0;
+str2 = xy;
+
+
+
+print all prefixes of a string.
+for example: 
+abc:- a,ab,abc.
+----------------
+void allPrefixes(char input[]){
+    // i represents end index of my prefix.
+    for(int i = 0;input[i] != '\0';i++){
+        // j represents start index of my prefixes.
+        for(int j =0;j<=i;j++){
+                cout<<input[j];
+        }
+        cout<<endl;
+    }
+}
+
+
+
