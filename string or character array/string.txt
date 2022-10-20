@@ -1,0 +1,24 @@
+cin.getlin(string_name, len_of_array)  is used instead of 'cin' for string input.
+
+Because our cin function will stop taking input when there occurs a tab, newline or any spacebar.
+
+for example..,
+
+cin>>str;
+input: hello world
+cout<<str;
+output: hello;
+
+only hello is saved in the array due to occurence in the cin function
+
+cin.getlin(string_name, len_of_array,delimeter)
+
+the delimeter is used to stop taking input from the user.
+The default  value of delimeter is '\n'. 
+And we can change as per requirement.
+
+For example:
+cin.getline(arr,20, 'l')             // So at whenever a 'l' is occurs we hit to new line and it stops taking input.
+input:hello world
+cout<<arr;
+output: he
