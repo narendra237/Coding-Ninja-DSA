@@ -17,7 +17,8 @@
                     "${workspaceFolder}/**"
                 ],
                 "limitSymbolsToIncludedHeaders": true
-            }
+            },
+            "cStandard": "c17"
         },
         {
             "name": "Win32",
