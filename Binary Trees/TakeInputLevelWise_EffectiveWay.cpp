@@ -134,7 +134,7 @@ Node<int> * takeInputLevelWise(){
         cin>>leftChildData;
         if(leftChildData != -1){
             Node <int> * child = new Node<int>(leftChildData);
-            front->left = child;1
+            front->left = child;
             pendingNodes.push(child);
         }
 
