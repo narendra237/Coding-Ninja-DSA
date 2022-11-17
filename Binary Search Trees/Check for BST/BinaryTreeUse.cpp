@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 #include "BinaryTreeNode.h"
 #include <queue>
 using namespace std;
@@ -55,6 +55,8 @@ void printTree(BinaryTreeNode<int>* root) {
 	printTree(root->right);
 }
 
+// RECURSIVE INPUT FOR THE GIVEN BST
+
 BinaryTreeNode<int>* takeInput() {
 	int rootData;
 	cout << "Enter data" << endl;
@@ -70,6 +72,8 @@ BinaryTreeNode<int>* takeInput() {
 	root->right = rightChild;
 	return root;
 }
+
+// NUMBER OF NODES IN BST
 
 int numNodes(BinaryTreeNode<int>* root) {
 	if (root == NULL) {
@@ -188,6 +192,8 @@ void printBetweenK1K2(BinaryTreeNode<int>* root, int k1, int k2) {
 		printBetweenK1K2(root->right, k1, k2);
 	}
 }
+
+/* Check BST 1 it is  not a good way because minimum and maximum function is be used multiple times */
 
 int maximum(BinaryTreeNode<int>* root) {
 	if (root == NULL) {
