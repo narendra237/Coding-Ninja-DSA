@@ -193,7 +193,56 @@ void printBetweenK1K2(BinaryTreeNode<int>* root, int k1, int k2) {
 	}
 }
 
+/* 3nd method using a class  and precise method */
+
+bool isBST3(BinaryTreeNode<int> * root, int min = INT_MIN, int max = INT_MAX){
+	if(root == NULL);
+		return true;
+	
+	if(root->data < min || root ->data > max){
+		return false;
+	}
+
+	bool isleftOk = isBST3(root->left,min, root->data -1);
+	bool isRightOk = isBST3(root->right,root->data, max);
+	return isleftOk && isRightOk;
+}
+
+/* 2nd method using a class */
+// Bottom to up appproach
+
+
+class IsBSTReturn{
+	public:
+	bool isBST;
+	int minimum;
+	int maximum;
+};
+
+IsBSTReturn isBST2(BinaryTreeNode<int> * root){
+	if(root == NULL){
+		IsBSTReturn output;
+		output.isBST = true;
+		output.minimum = INT_MAX;
+		output.maximum = INT_MIN;
+		return output; 
+	}
+
+	IsBSTReturn leftOutput = isBST2(root->left);
+	IsBSTReturn rightOutput = isBST2(root->right);
+	int minimum = min(root->data,min(leftOutput.minimum,rightOutput.minimum));
+	int maximum = max(root->data, max(leftOutput.maximum, rightOutput.maximum));
+	bool isBSTFinal = (root->data > leftOutput.maximum) && (root->data <= rightOutput.minimum) && leftOutput.isBST && rightOutput.isBST;
+	IsBSTReturn output;
+	output.isBST = true;
+	output.minimum = minimum;
+	output.maximum = maximum;
+	output.isBST = isBSTFinal;
+	return output; 
+}
+
 /* Check BST 1 it is  not a good way because minimum and maximum function is be used multiple times */
+// Bottom to up appproach
 
 int maximum(BinaryTreeNode<int>* root) {
 	if (root == NULL) {
@@ -223,7 +272,7 @@ bool isBST(BinaryTreeNode<int>* root) {
 // 1 2 3 4 5 6 7 -1 -1 -1 -1 8 9 -1 -1 -1 -1 -1 -1
 int main() {
 	BinaryTreeNode<int>* root = takeInputLevelWise();
-	cout << isBST(root) << endl;
+	cout << isBST3(root) << endl;
 	delete root;
 }
 
